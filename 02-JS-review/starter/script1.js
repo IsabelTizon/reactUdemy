@@ -140,12 +140,9 @@ const data = [
 	},
 ];
 
-function getBooks() {
-	return data;
-}
-
-function getBook(id) {
-	return data.find((d) => d.id === id);
+// If no parameter is provided, the function will return the data
+function getBook(id = null) {
+	return id ? data.find((d) => d.id === id) : data;
 }
 
 const book = getBook(2);
