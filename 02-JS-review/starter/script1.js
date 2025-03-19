@@ -163,7 +163,7 @@ const [primaryGenre, secundaryGenre, ...otherGenres] =
 console.log(primaryGenre, secundaryGenre);
 console.log(primaryGenre, secundaryGenre, otherGenres);
 
-// Create a new element in the end of the existing array
+// Create a new element in the end of the existing array, outside of the array!!
 const newGenres = [genres, "epic fantasy"];
 newGenres;
 // Putting the new element as a string in the end of our array doesn't meet the requirements because we saw that two arrays was created
@@ -173,6 +173,7 @@ secondNewGenres;
 const thirdNewGenres = ["epic fantasy", ...genres];
 thirdNewGenres;
 
+// 📌📌📌📌📌 📌📌📌📌📌📌📌📌📌📌📌📌📌📌📌📌📌📌📌📌📌📌📌📌📌📌📌📌📌📌📌📌📌📌📌
 //Add new properties to an object or overwrite existing properties in an object: SPREAD OPERATOR
 const updatedBook = {
 	...book,
@@ -216,7 +217,7 @@ const bookInfo = `${title} by ${author} contains ${
 } been adapted as a movie.`;
 bookInfo;
 
-// SHORT-CIRCUITING AND LOGIICAL OPERATORS: &&, ||, ??
+// SHORT-CIRCUITING AND LOGICAL OPERATORS: &&, ||, ??
 
 // 1) && OPERATOR:
 // 1.1) when the first value is true it returns the second value
