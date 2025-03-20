@@ -244,4 +244,23 @@ const elementOverwritted = {
 };
 console.log(elementOverwritted);
 
-// get the book title and see if it has a movie adaptation. Map + ternary + template literals
+// get the book title and see if it has a movie adaptation. arrowf + ternary + template literals
+const getBookInfo = (book3) => {
+	return book3.hasMovieAdaptation
+		? `The book ${title} has a movie adaptation`
+		: `The book ${title} hasn't a movie adaptation`;
+};
+console.log(getBookInfo(book3));
+
+// The "bookName" by "author" contains "num of genres" genres and was published in "year". The book "has not been adapted as a movie"
+const getBookInfo2 = (book3) => {
+	const { title, author, pages } = book3;
+	const publishedYear = book3.publicationDate.split("-")[0];
+	const movieStatus = book3.hasMovieAdaptation
+		? `has a movie adaptation`
+		: `has not a movie adaptation`;
+	return `The book ${title} by ${author} contains ${pages} and was published in ${publishedYear}. The book ${movieStatus}`;
+};
+console.log(getBookInfo2(book3));
+
+//
