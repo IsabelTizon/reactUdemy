@@ -263,4 +263,28 @@ const getBookInfo2 = (book3) => {
 };
 console.log(getBookInfo2(book3));
 
-//
+// chaining and short circuiting with nullish coalescing
+
+const getTotalRatings = (book2) => {
+	return (
+		book2.reviews.librarything.reviewsCount ||
+		"No reviews available"
+	);
+}; // No deberia devolverme ""No reviews available" si no un 0
+console.log(getTotalRatings(book2));
+
+const getTotalRatingsNullishCoalescing = (book2) => {
+	return (
+		book2.reviews.librarything?.reviewsCount ??
+		"No reviews available"
+	);
+}; // No deberia devolverme ""No reviews available" si no un 0
+console.log(getTotalRatingsNullishCoalescing(book2));
+
+const reviewsSumBook3 = (book3) => {
+	return (
+		(book3.reviews.goodreads?.rating ?? 0) +
+		(book3.reviews.librarything?.rating ?? 0)
+	);
+};
+console.log(reviewsSumBook3(book3));
