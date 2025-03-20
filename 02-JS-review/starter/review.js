@@ -218,5 +218,30 @@ const newElement = {
 console.log(newElement);
 
 // Overwritting a property
+const propertyOverwritted = {
+	...book3,
+	author: "Isabel Tizón",
+};
+console.log(propertyOverwritted);
+
 // Overwritting a nested property
+const nestedPropertyOverwritted = {
+	...book3,
+	reviews: {
+		...book3.reviews,
+		goodreads: {
+			...book3.reviews.goodreads,
+			oldReviews: "from now",
+		},
+	},
+};
+console.log(nestedPropertyOverwritted);
+
 // Overwritting an array element
+const elementOverwritted = {
+	...book3,
+	genres: [...book3.genres, "goreNOT"],
+};
+console.log(elementOverwritted);
+
+// get the book title and see if it has a movie adaptation. Map + ternary + template literals
