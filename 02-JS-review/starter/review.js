@@ -288,3 +288,63 @@ const reviewsSumBook3 = (book3) => {
 	);
 };
 console.log(reviewsSumBook3(book3));
+
+//Review 2: Iterating Methods (map, filter, find, reduce, sort)
+const books = getBook();
+console.log(books);
+
+const getAuthorsMap = (books) =>
+	books.map((book) => book.author);
+console.log(getAuthorsMap(books));
+
+const getLongBooksFilter = (books) =>
+	books.filter((book) => book.pages >= 550);
+console.log(getLongBooksFilter(books));
+
+const getLongBooksFind = (books) =>
+	books.find((book) => book.pages >= 550);
+console.log(getLongBooksFind(books));
+
+// 📌📌📌📌📌 📌📌📌📌📌📌📌📌📌📌📌📌📌📌📌📌📌
+// Find y filter: Ambos métodos sirven para buscar elementos dentro de un array
+// FIND()
+// ✅  solo devuelve el PRIMER elemento que cumpla con la condición.
+// ✅ Si no encuentra nada, devuelve undefined.
+
+// FILTER()
+// ✅ Devuelve un array con TODOS los elementos que cumplan la condición.
+// ✅ Si no encuentra nada, devuelve un array vacío [].
+
+// REDUCE
+const totalPagesReduce = (books) =>
+	books.reduce((acc, curr) => acc + curr.pages, 0);
+console.log(totalPagesReduce(books));
+
+// SORT
+const bookInAscPages = (books) =>
+	books.sort((a, b) => a - b);
+console.log(bookInAscPages(books));
+
+const bookInAscPagesMapped = (books) => books.slice();
+console.log(bookInAscPagesMapped(books));
+const bookInAscPagesMapped2 = (books) =>
+	books.slice().sort((a, b) => b.pages - a.pages);
+console.log(bookInAscPagesMapped2(books));
+const bookInAscPagesMapped3 = (book) =>
+	book
+		.slice()
+		.sort((a, b) => b.pages - a.pages)
+		.map((book) => `${book.title}: ${book.pages}`);
+console.log(bookInAscPagesMapped3(books));
+
+const bookInAscPagesMapped4 = (books) =>
+	books
+		.slice()
+		.sort((a, b) => a.pages - b.pages)
+		.filter((book) => book.pages >= 500)
+		.map((book) =>
+			book
+				? `${book.title}: ${book.pages}`
+				: `Sorry we don't have any book longer than 500 pages`
+		);
+console.log(bookInAscPagesMapped4(books));
