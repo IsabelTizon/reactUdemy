@@ -139,3 +139,39 @@ const data = [
 		},
 	},
 ];
+
+const getAllBooks = () => {
+	return data;
+};
+console.log(getAllBooks());
+
+const getBook = (id) => {
+	return data.find((d) => d.id === id);
+};
+console.log(getBook(2));
+
+// 1. Find the book with most pages
+// In this case find() only returns the first element that meets a condition, while we need to compare all the elements in the array to find the one with the most pages!
+const longestBook = () => {
+	return data.reduce((acc, curr) => {
+		return acc.pages > curr.pages ? acc : curr;
+	}, data[0]);
+};
+console.log(longestBook());
+
+// 2. Find the book with the most reviews
+// Error: Cannot read properties of undefined (reading 'reviewsCount')
+
+console.log(data[0].reviews.goodreads.reviewsCount);
+// opcional chaining (?.)
+const mostReviews = () => {
+	return data.reduce(
+		(acc, curr) =>
+			(acc.reviews?.goodreads?.reviewsCount || 0) >
+			(curr.reviews?.goodreads?.reviewsCount || 0)
+				? acc
+				: curr,
+		data[0]
+	);
+};
+console.log(mostReviews());
