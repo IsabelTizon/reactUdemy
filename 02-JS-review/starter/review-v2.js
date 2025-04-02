@@ -237,3 +237,15 @@ const arrMappedTranslations = data.map((d) =>
 		: `${d.title} hasn't any translations`
 );
 console.log(arrMappedTranslations);
+
+const arrMappedTranslationsElements = data.map((d) =>
+	Object.keys(d.translations).length > 0
+		? `${d.title} has translations in: ${Object.keys(
+				d.translations
+		  )
+				.map((lang, index) => `${index + 1}. ${lang}`)
+				.join(", ")}`
+		: `${d.title} hasn't any translations`
+);
+
+console.log(arrMappedTranslationsElements);
