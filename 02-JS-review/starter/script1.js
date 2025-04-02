@@ -184,7 +184,7 @@ const updatedBook = {
 	pages: 1220,
 };
 updatedBook;
-// TERNARY OPERATOR:operator thar takes three operands
+// TERNARY OPERATOR:operator that takes three operands
 const hasMovieAdaptation = book.hasMovieAdaptation
 	? "has a movie adaptation"
 	: "doesn't have a movie adaptation";
