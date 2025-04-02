@@ -199,3 +199,41 @@ const newDb = data.map((book) => ({
 	isSaga: book.pages > 500,
 }));
 console.log(newDb);
+
+// Mapping the array
+const arrMappedAuthor = data.map((d) => d.author);
+console.log(arrMappedAuthor);
+
+const arrMappedTitle = data.map((d) => d.title);
+console.log(arrMappedTitle);
+
+const arrMappedpublicationDate = data.map(
+	(d) => d.publicationDate
+);
+console.log(arrMappedpublicationDate);
+
+const arrMappedGenres = data.map((d) => d.genres);
+console.log(arrMappedGenres);
+
+const arrMappedhasMovieAdaptation = data.map((d) =>
+	d.hasMovieAdaptation
+		? ` ${d.title} has a Movie Adaptation`
+		: `${d.title} doesn't  has a Movie Adaptation`
+);
+console.log(arrMappedhasMovieAdaptation);
+
+const arrMappedNumPages = data.map((d) =>
+	d.pages >= 500
+		? ` ${d.title} has ${d.pages} pages`
+		: ` ${d.title} has ${d.pages} pages`
+);
+console.log(arrMappedNumPages);
+
+const arrMappedTranslations = data.map((d) =>
+	Object.keys(d.translations).length > 0
+		? `${d.title} has ${
+				Object.keys(d.translations).length
+		  } translations`
+		: `${d.title} hasn't any translations`
+);
+console.log(arrMappedTranslations);

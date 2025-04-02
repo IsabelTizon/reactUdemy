@@ -164,13 +164,14 @@ const data = [
 11.- Chaining operator and short circuiting: return goodreadsRating + librarythingRating;
  */
 
-const getBook = (id = null) =>
-	id ? data.find((d) => d.id === id) : data;
+const getBook = (id) =>
+	data.find((d) => d.id === id) ||
+	`There is no book with the id ${id}`;
 //arrow function + ternary + find + arrow function
 console.log(getBook(1));
-console.log(getBook());
+console.log(getBook(8));
 
-// Adding a new property to an object
+//
 const book2 = getBook(2);
 console.log(book2);
 const book3 = getBook(3);
@@ -197,7 +198,7 @@ const newProperty = {
 };
 console.log(newProperty);
 
-// Adding a new nested property
+// adding a nested property
 const newElementArr = {
 	...book3,
 	reviews: {
@@ -244,7 +245,7 @@ const elementOverwritted = {
 };
 console.log(elementOverwritted);
 
-// get the book title and see if it has a movie adaptation. arrowf + ternary + template literals
+// get the book title and see if it has a movie adaptation. arrow f() + ternary + template literals
 const getBookInfo = (book3) => {
 	return book3.hasMovieAdaptation
 		? `The book ${title} has a movie adaptation`
