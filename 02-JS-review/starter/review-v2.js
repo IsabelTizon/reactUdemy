@@ -140,17 +140,19 @@ const data = [
 	},
 ];
 
+// 1. RETURN ALL DATA
 const getAllBooks = () => {
 	return data;
 };
 console.log(getAllBooks());
 
+// 2. RETURN THE BOOK DATA
 const getBook = (id) => {
 	return data.find((d) => d.id === id);
 };
 console.log(getBook(2));
 
-// 1. FIND THE LONGEST BOOK
+// 3. RETURN THE LONGEST BOOK
 // In this case find() only returns the first element that meets a condition, while we need to compare all the elements in the array to find the one with the most pages!
 const longestBook = () => {
 	return data.reduce((acc, curr) => {
@@ -159,9 +161,8 @@ const longestBook = () => {
 };
 console.log(longestBook());
 
-// 2. RETURN THE BOOK MORE REVIEWING
+// 4. RETURN THE BOOK MORE REVIEWING
 // Error: Cannot read properties of undefined (reading 'reviewsCount')
-
 console.log(data[0].reviews.goodreads.reviewsCount);
 // opcional chaining (?.)
 const mostReviews = () => {
@@ -176,11 +177,11 @@ const mostReviews = () => {
 };
 console.log(mostReviews());
 
-// 3. RETURN THE BOOK IF EXIST IF NOT ALL THE DATA
+// 5. RETURN THE BOOK IF EXIST IF NOT ALL THE DATA
 const getID = (id) => data.find((book) => book.id === id);
 console.log(getID(8)); // Returns the book and its id or undefined if doesn't exist
 
-// RETURN THE DATA IF THE BOOK DOESN'T EXIST
+//6. RETURN THE DATA IF THE BOOK DOESN'T EXIST
 // parameter we are gonna looking for
 // data.find()
 // ((d) => d.id === id)
@@ -189,7 +190,7 @@ const getSth = (id) =>
 	data.find((d) => d.id === id) || data;
 console.log(getSth(8));
 
-// 4. ADD A PROPERTY
+// 7. ADD A PROPERTY
 // iterate by mapping
 // spread operator to keep the original array
 // add new property creating a condition
