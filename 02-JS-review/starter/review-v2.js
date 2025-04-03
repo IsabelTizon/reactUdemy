@@ -249,3 +249,15 @@ const arrMappedTranslationsElements = data.map((d) =>
 );
 
 console.log(arrMappedTranslationsElements);
+
+//
+const arrMappedReviews = data.map((d) =>
+	Object.keys(d.reviews).length > 0
+		? `${d.title} has the reviews of: ${Object.keys(
+				d.reviews
+		  )
+				.map((r, index) => `${index + 1}. ${r}`)
+				.join(", ")}`
+		: `${d.title} hasn't any reviews`
+);
+console.log(arrMappedReviews);
