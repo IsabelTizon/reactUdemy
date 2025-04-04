@@ -49,7 +49,7 @@ const data = [
 		translations: {},
 		reviews: {
 			goodreads: {
-				rating: 4.16,
+				rating: 4.6,
 				ratingsCount: 11663,
 				reviewsCount: 812,
 			},
@@ -261,3 +261,37 @@ const arrMappedReviews = data.map((d) =>
 		: `${d.title} hasn't any reviews`
 );
 console.log(arrMappedReviews);
+
+// RETURN ALL THE MOVIES WITH A GOODREADS RATING HIGHER THAN 4,50
+const highestGoodreadsRating = data.filter(
+	(d) => d.reviews?.goodreads?.rating >= 4.5 ?? 0
+);
+console.log(highestGoodreadsRating);
+
+//RETURN TOTAL RATINGCOUNT AND THE TOTAL REVIEWSCOUNT
+const totalGoodreadCount =
+	data.reduce(
+		(acc, curr) =>
+			acc + (curr.reviews?.goodreads?.ratingsCount || 0),
+		0
+	) +
+	data.reduce(
+		(acc, curr) =>
+			curr.reviews?.goodreads?.reviewsCount || 0,
+		0
+	);
+
+console.log(totalGoodreadCount);
+
+// RETURN THE FIRST ELEMENT WHERE THE PUBLICATION YEAR WAS AFTER 1990;
+const firstBookAfter1990 = data.find((b) => {
+	const year = Number(b.publicationDate.slice(0, 4)); // extrae el año
+	return year > 1990;
+});
+
+console.log(firstBookAfter1990);
+console.log(
+	firstBookAfter1990
+		? `${firstBookAfter1990.title} was the first book published after 1990.`
+		: "No book was published after 1990."
+);
